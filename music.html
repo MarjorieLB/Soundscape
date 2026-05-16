@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+    <link rel="stylesheet" href="/styles/style.css">
+    <title>Soundscape</title>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!--
+            - The header class contains the div class logo-name and
+                the div class theme-toggle-icon that contains 
+                label class theme-toggle and iput id themeToggle,
+                also a nested div class slider that contains another
+                nested div circle
+        -->
+        <header class="header">
+
+            <div class="logo-name">
+                <h2>Soundscape</h2>
+            </div>
+
+            <div class="theme-toggle-icon">
+
+                <label class="theme-toggle">
+                <input type="checkbox" id="themeToggle">
+
+                <div class="slider">
+                    <div class="circle"></div>
+                </div>
+                </label>
+
+            </div>
+
+        </header>
+    
+        <!--
+            - The left sidebar
+            - the class left contains a div class search-box
+                that contains a span class material-icons
+            - and a ul class nav
+        -->
+        <aside class="left">
+
+            <div class="search-box">
+
+                <span class="material-icons">
+                    search
+                </span>
+
+                <input
+                    type="text"
+                    maxlength="200"
+                    placeholder="Search a song, artist, or album..."
+                    class="search-input"
+                >
+
+            </div>
+
+            <ul class="nav">
+
+                <li data-category="songs">
+                    Songs
+                </li>
+
+                <li data-category="albums">
+                    Albums
+                </li>
+
+                <li data-category="artists">
+                    Artists
+                </li>
+
+                <li data-category="favorites">
+                    Favorites
+                </li>
+
+            </ul>
+
+            <!-- LEFT DYNAMIC CONTENT -->
+            <div class="left-content"></div>
+
+        </aside>
+        <!--
+            - the main class middle contains a
+            - div class player and inside of it contains classes
+                such as div class top-bar, div class-song-info, 
+                div class progress-container, div class control
+
+            - the div class song-info contains another classes,
+                img class cover, h1 class title, p class artist, 
+                p class album, a div class icons.
+
+                - inside the div class icons contains another classes
+                    div class volume-container and div class icon-group
+
+            - the div class progress-container contains another classes
+                a div class time that contains  
+                    - span class current and span class duration
+                and a div class progress-bar that contains 
+                    - div class progress
+
+        -->
+        <main class="middle">
+
+            <div class="player">
+
+                <div class="top-bar">
+                    <h2>Now Playing</h2>
+                    <i class="fa-solid fa-music"></i>
+                </div>
+
+                <div class="song-info">
+                    <img class="cover" src="" alt="cover">
+                    <h1 class="title">Song Title</h1>
+                    <p class="artist">Artist Name</p>
+                    <p class="album">Album Name</p>
+                    <div class="icons">
+                        <div class="volume-container">
+                            <i class="fa-solid fa-volume-high volume"></i>
+                            <input
+                                type="range"
+                                class="volume-slider"
+                                min="0"
+                                max="100"
+                                value="50"
+                            >
+                        </div>
+                        <div class="icon-group">
+                            <i class="fa-regular fa-heart heart"></i>
+                            <i class="fa-solid fa-thumbs-up"></i>
+                            <i class="fa-solid fa-thumbs-down"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress-container">
+                    <div class="time">
+                        <span class="current">0:00</span>
+                        <span class="duration">0:00</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+                </div>
+                <div class="controls">
+                    <i class="fa-solid fa-backward-step prev"></i>
+                    <div class="play-btn">
+                        <i class="fa-solid fa-play play-icon"></i>
+                    </div>
+                    <i class="fa-solid fa-forward-step next"></i>
+                </div>
+
+                <!--
+                    - AUDIO ELEMENT
+                    - handles actual music playback
+                -->
+                <audio class="audio"></audio>
+            </div>
+        </main>
+
+        <aside class="right">
+
+        <!--
+            - The right sidebar will be generated dynamically
+            - using JavaScript from the songs array
+        -->
+        <div class="right-sidebar">
+
+            <div class="right-column">
+
+                <!-- QUEUE -->
+                <div class="right-box">
+
+                    <div class="right-title">
+                        Queue
+                    </div>
+
+                    <div class="song-row queue-list"></div>
+
+                </div>
+
+                <!-- UP NEXT -->
+                <div class="right-box">
+
+                    <div class="right-title">
+                        Up Next
+                    </div>
+
+                    <div class="song-row up-next-list"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+    </div>
+
+    <script type="module" src="/js/script.js"></script>
+    <script src="/js/ThemeToggle.js"></script>
+
+</body>
+</html>

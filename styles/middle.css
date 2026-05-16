@@ -1,0 +1,381 @@
+/**
+    - for the middle column, set grid-area to middle
+        to place section in center column. make display flex
+        to enable flex layout. use justify-content center and
+        align-items center to center content both horizontally
+        and vertically. add padding for inner spacing and
+        backdrop-filter blur for glass effect
+*/
+
+.middle{
+    grid-area:middle;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:25px;
+    backdrop-filter:blur(18px);
+}
+
+
+/**
+    - for the player container set width to 100%
+        and max-width to 380px to limit size on large screens.
+        add padding for inner spacing
+*/
+
+.player{
+    width:100%;
+    max-width:380px;
+    padding:24px;
+}
+
+
+/**
+    - for the top-bar make display flex to align items
+        horizontally. use justify-content space-between to
+        separate elements. align-items center to center vertically.
+        add margin-bottom for spacing below section
+*/
+
+.top-bar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+
+/**
+    - for top-bar h2 set color to primary variable.
+        set font-size to 18px and font-weight to 600.
+        add letter-spacing for text spacing
+*/
+
+.top-bar h2{
+    color:var(--primary);
+    font-size:18px;
+    font-weight:600;
+    letter-spacing:0.5px;
+}
+
+
+/**
+    - for top-bar icon set color to primary variable.
+        set font-size to 20px. add cursor pointer for click
+        behavior. add transition for smooth hover effect
+*/
+
+.top-bar i{
+    color:var(--primary);
+    font-size:20px;
+    cursor:pointer;
+    transition:0.25s ease;
+}
+
+
+/**
+    - hover effect for top-bar icon
+        scales icon slightly on hover
+*/
+
+.top-bar i:hover{
+    transform:scale(1.1);
+}
+
+
+/**
+    - for song-info set text alignment to center
+        to center all content inside
+*/
+
+.song-info{
+    text-align:center;
+}
+
+
+/**
+    - for cover image set width and height to 210px.
+        use object-fit cover to maintain aspect ratio.
+        add border-radius for rounded corners. center image
+        using margin auto and add box-shadow for depth
+*/
+
+.cover{
+    width:210px;
+    height:210px;
+    object-fit:cover;
+    border-radius:28px;
+    margin:0 auto 24px auto;
+    box-shadow:var(--cover-shadow);
+}
+
+
+/**
+    - for title set font-size to 26px and font-weight to 700.
+        add line-height for spacing and letter-spacing for style.
+        set color to text variable
+*/
+
+.title{
+    font-size:26px;
+    font-weight:700;
+    line-height:1.2;
+    letter-spacing:0.4px;
+    color:var(--text);
+}
+
+
+/**
+    - for artist text set margin-top for spacing.
+        set color to primary variable. use smaller font-size
+        and medium font-weight
+*/
+
+.artist{
+    margin-top:8px;
+    color:var(--primary);
+    font-size:15px;
+    font-weight:600;
+}
+
+
+/**
+    - for album text set margin-top for spacing.
+        set color to text-light variable. use smaller font-size
+        and letter-spacing for readability
+*/
+
+.album{
+    margin-top:5px;
+    color:var(--text-light);
+    font-size:13px;
+    letter-spacing:0.3px;
+}
+
+
+/**
+    - for icons container set margin-top for spacing.
+        use flex to align items. justify-content space-between
+        and align-items center. add padding, border-radius,
+        background and border for UI styling
+*/
+
+.icons{
+    margin-top:22px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 18px;
+    border-radius:20px;
+    background:var(--icon-bg);
+    border:1px solid var(--border-light);
+}
+
+
+/**
+    - for icon group use flex layout and gap for spacing
+*/
+
+.icon-group{
+    display:flex;
+    gap:18px;
+}
+
+
+/**
+    - for icons set color to primary variable.
+        set font-size to 18px. add cursor pointer
+        and transition for hover animation
+*/
+
+.icons i{
+    color:var(--primary);
+    font-size:18px;
+    cursor:pointer;
+    transition:0.25s ease;
+}
+
+
+/**
+    - hover effect for icons
+        slightly lifts and scales icon
+*/
+
+.icons i:hover{
+    transform:translateY(-2px) scale(1.08);
+}
+
+
+/**
+    - for plus button set fixed width and height.
+        center content using flex. add border-radius for shape.
+        apply gradient background and shadow for depth.
+        set text color to white
+*/
+
+.plus-btn{
+    width:44px;
+    height:44px;
+    border-radius:14px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(
+        145deg,
+        var(--primary-light),
+        var(--primary)
+    );
+    box-shadow:var(--primary-shadow);
+    color:white !important;
+}
+
+
+/**
+    - for progress container add margin-top for spacing
+*/
+
+.progress-container{
+    margin-top:24px;
+}
+
+
+/**
+    - for time display use flex to separate items.
+        add spacing below and set text color, font-size,
+        and font-weight
+*/
+
+.time{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:10px;
+    color:var(--text-light);
+    font-size:12px;
+    font-weight:500;
+}
+
+
+/**
+    - for progress bar set width to 100% and fixed height.
+        add background color and border-radius. hide overflow
+*/
+
+.progress-bar{
+    width:100%;
+    height:7px;
+    background:var(--progress-bg);
+    border-radius:20px;
+    overflow:hidden;
+}
+
+
+/**
+    - for progress fill set width percentage.
+        apply gradient background and full height.
+        add border-radius for smooth edges
+*/
+
+.progress{
+    width:35%;
+    height:100%;
+    border-radius:20px;
+    background:linear-gradient(
+        to right,
+        var(--primary-light),
+        var(--primary)
+    );
+}
+
+
+/**
+    - for controls set margin-top for spacing.
+        use flex to center items and add gap between them
+*/
+
+.controls{
+    margin-top:24px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:22px;
+}
+
+
+/**
+    - for control icons set color, size, cursor,
+        and transition for hover effect
+*/
+
+.controls i{
+    color:var(--primary);
+    font-size:20px;
+    cursor:pointer;
+    transition:0.25s ease;
+}
+
+
+/**
+    - hover effect for controls icons
+        slightly scales icon
+*/
+
+.controls i:hover{
+    transform:scale(1.15);
+}
+
+
+/**
+    - for play button set fixed size and circular shape.
+        center content using flex. apply gradient background
+        and shadow. add hover scale effect
+*/
+
+.play-btn{
+    width:68px;
+    height:68px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(
+        145deg,
+        var(--primary-light),
+        var(--primary)
+    );
+    box-shadow:var(--primary-shadow);
+    cursor:pointer;
+    transition:0.25s ease;
+}
+
+
+/**
+    - hover effect for play button
+        slightly enlarges button
+*/
+
+.play-btn:hover{
+    transform:scale(1.05);
+}
+
+
+/**
+    - for play icon set color to white and increase size
+*/
+
+.play-icon{
+    color:white !important;
+    font-size:24px !important;
+}
+
+/**
+    - RESPONSIVE DESIGN (MIDDLE COLUMN + PLAYER UI)
+    - adapts player layout for all screen sizes
+*/
+
+
+/**
+    - EXTRA LARGE SCREENS (1440px and above)
+    - increase spacing and enlarge player for wide screens
+*/
+
+

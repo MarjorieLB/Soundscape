@@ -1,0 +1,299 @@
+/**
+    - for the left column, lets make the grid-area a .left
+        to place section in left colum, make the display
+        flex to use flex layout. add flex-direction column,
+        to stack items vertically. add gap to add space between 
+        items. make the backdrop-filter blur to add blur effect.
+        and add border-right that adds divider line
+*/
+
+.left{
+    grid-area:left;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    backdrop-filter:blur(18px);
+    border-right:1px solid var(--border-light);
+    overflow:hidden;
+    min-height:0;
+}
+
+
+/**
+    - for the search-box make the display a flex, to align
+        icon and input horizontally. align-items center,
+        to center vertically. add gap to add space between items.
+        padding for inner spacing. border-radius for rounded corners.
+        and make the background implements the variable --card-bg as the
+        main background. add border and implement variable --border-light to 
+        make border line. backdrop-filter blur for blur effect.
+        and box-shadow to add depth
+*/
+
+.search-box{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px 18px;
+    border-radius:22px;
+    background:var(--card-bg);
+    border:1px solid var(--border-light);
+    backdrop-filter:blur(10px);
+    box-shadow:
+    var(--shadow),
+    var(--inner-shadow);
+}
+
+
+/**
+    - for search-box material icons make the color,
+        implement the variable --primary as the icon color.
+        and font size as 22px for icon size
+*/
+
+.search-box .material-icons{
+    color:var(--primary);
+    font-size:22px;
+}
+
+
+/**
+    - for search-box input make the width 100% so that input
+        takes full width. make the border and outline as none to remove 
+        default styles. background as transparent for no background.
+        make the color implement the variable --text for the text color.
+        make the font-size 14px for the text size and the font-weight as 500
+        for medium text
+*/
+
+.search-box input{
+    width:100%;
+    border:none;
+    outline:none;
+    background:transparent;
+    color:var(--text);
+    font-size:14px;
+    font-weight:500;
+}
+
+
+/**
+    - placeholder color
+        Styles placeholder text
+*/
+
+.search-box input::placeholder{
+    color:var(--text-light);
+}
+
+
+/** 
+    - for the nav (navigation) make list-style as none 
+        to remove the bullets. make the display flex for 
+        horizontal layout. add justify-content space-between
+        so navigation items spread evenly across the row.
+        add align-items center to vertically align items.
+        add gap for space between items.
+    - add overflow-x auto to enables horizontal scroll.
+        add scrollbar-width none to hide scrollbar 
+        and a padding-bottom for bottom spacing
+*/
+
+.nav{
+    list-style:none;
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+    gap:8px;
+    overflow-x:auto;
+    scrollbar-width:none;
+    padding-bottom:4px;
+}
+
+
+/**
+    - hides scrollbar (Chrome)
+*/
+
+.nav::-webkit-scrollbar{
+    display:none;
+}
+
+
+/**
+    - for the nav li make flex 1
+        so each navigation item takes equal width.
+        make display flex to center content.
+        add align-items center to vertically align the text.
+        add justify-content center to horizontally align the text.
+        add padding for inner spacing.
+        border-radius for rounded corners.
+        add background that implement variable --card-bg
+        as the background color.
+        add border that implements variable --border-light
+        for border line.
+        color that implement variable --text for text color.
+        add cursor pointer to make it clickable.
+        and transition for smooth hover animation
+*/
+.nav li{
+    min-width:110px;
+    flex-shrink:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:12px 18px;
+    border-radius:18px;
+    background:var(--card-bg);
+    border:1px solid var(--border-light);
+    color:var(--text);
+    font-size:14px;
+    font-weight:500;
+    cursor:pointer;
+    transition:0.25s ease;
+}
+
+/**
+    - hover effect
+        Changes color and moves up slightly
+*/
+
+.nav li:hover{
+    background:var(--primary);
+    color:white;
+    transform:translateY(-2px);
+}
+
+
+/**
+    - ACTIVE NAV
+        highlights the selected navigation item
+*/
+
+.active-nav{
+    background:
+    rgba(122,66,244,0.18);
+    color:var(--primary);
+    border-radius:18px;
+    border:1px solid rgba(122,66,244,0.35);
+}
+
+
+/**
+    - LEFT CONTENT
+        container for dynamically generated content
+*/
+
+
+.left-content{
+    flex:1;
+    overflow-y:auto;
+    min-height:0;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    padding-right:4px;
+}
+
+
+/**
+    - INFO BOX
+        reusable card for songs, albums,
+        artists, favorites, and recent
+*/
+
+.info-box{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:14px;
+    border-radius:18px;
+    border:1px solid var(--border-light);
+    backdrop-filter:blur(14px);
+    cursor:pointer;
+    transition:0.25s ease;
+}
+
+
+/**
+    - INFO BOX HOVER
+        slightly moves the box and changes background
+*/
+
+.info-box:hover{
+    background:
+    rgba(255,255,255,0.14);
+}
+
+
+/**
+    - INFO ICON
+        circular icon container
+*/
+
+.info-icon{
+    width:42px;
+    height:42px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:50%;
+    background:var(--primary);
+    color:#fff;
+    flex-shrink:0;
+}
+
+
+/**
+    - INFO DETAILS
+        stacks title and subtitle vertically
+*/
+
+.info-details{
+    display:flex;
+    flex-direction:column;
+}
+
+
+/**
+    - INFO TITLE
+        main information text
+*/
+
+.info-title{
+    font-size:15px;
+    font-weight:500;
+    color:var(--text);
+}
+
+
+/**
+    - INFO SUBTITLE
+        secondary information text
+*/
+
+.info-subtitle{
+    font-size:13px;
+    color:var(--text-light);
+}
+.info-cover{
+    width:42px;
+    height:42px;
+    border-radius:10px;
+    object-fit:cover;
+}
+
+
+/**
+    - RESPONSIVE DESIGN (LEFT COLUMN)
+    - adapts sidebar navigation and content for all screen sizes
+*/
+
+
+/**
+    - EXTRA LARGE SCREENS (1440px and above)
+    - more spacing and wider sidebar feel
+*/
+
+
+

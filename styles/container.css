@@ -1,0 +1,418 @@
+
+/**
+    - Make the container display a grid 
+        to turn the container into a CSS Grid layout system
+    - Then define the named layout regions using grid-template-areas
+    - Use the grid-template-colums to make the columns size
+        the left and right will be 300px and the middle will take all the 
+        available space with the help of 1fr (fractional unit)
+    - same in grid-tempalte-rows 
+        the header and footer will be auto based on the content 
+        and the middle fills the remaining height
+*/
+
+.container{
+    display:grid;
+
+    grid-template-areas:
+    "header header header"
+    "left middle right"
+    "footer footer footer";
+
+    grid-template-columns:300px 1fr 300px;
+    grid-template-rows:auto 1fr auto;
+    height:100vh;
+    overflow:hidden;
+}
+
+
+/** 
+    - Make the header grid-area a header
+        so that it will place element inside "header" grid area 
+    - Also make the display a flex for flexbox in horizontal layout,  
+        justify-content a space-between so that it pushes items to left and right edges,
+        align-items a center to vertically center the items
+    - Add padding to adds space inside the header
+    - make the background implement the --glass to apply glassmorphism
+    - Add backdrop-filter to add blur effect behind element
+    - And add border-bottom to add subtle seperation line
+*/
+
+.header{
+    grid-area:header;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 30px;
+    background:var(--glass);
+    backdrop-filter:blur(16px);
+    border-bottom:1px solid var(--border-light);
+}
+
+
+/**
+    - for the logo name h2 make the color implement the variable --primary
+    - make the font size 20px
+    - and the font-weight 700 to emphasize the text more
+*/
+
+.logo-name h2{
+    color:var(--primary);
+    font-size:20px;
+    font-weight:700;
+}
+
+
+/**
+    - for the variables in theme toggle
+    - add --switch-bg as the main background color of the switch track,
+        --switch-width / height for the size of the width,
+        --circle-diameter for the size of the toggle knob,
+        --circle-bg for the color of the toggle knob,
+        --circle-inset to center knob vertically
+*/
+
+.theme-toggle {
+    --switch-bg: rgb(135, 150, 165);
+    --switch-width: 48px;
+    --switch-height: 15px;
+    --circle-diameter: 32px;
+    --circle-bg: rgb(174, 62, 239);
+    --circle-inset:
+    calc((var(--circle-diameter) - var(--switch-height)) / 2);
+}
+
+
+/**
+    - for the theme-toggle input make the display none, to hide default checkbox input
+*/
+
+.theme-toggle input{
+    display:none;
+}
+
+
+/**
+    - for the slider make the width and height implement the variable
+        --switch-width / height, and make the background implement the
+        --switch-bg
+    - make the border-radius 999px to make it fully rounded,
+        and make the position relative for absolute positioning inside
+    - make the cursor a pointer to make it clickable
+*/
+
+.slider{
+    width:var(--switch-width);
+    height:var(--switch-height);
+    background:var(--switch-bg);
+    border-radius:999px;
+    position:relative;
+    cursor:pointer;
+}
+
+
+/** 
+    - for the slider circle make position absolute to allow movement
+        inside the slider and make the top use calc to center the knob 
+        vertically, make the left as 0 for default position,
+        add transition for smooth animation when switching, and a 
+        box-shadow to add depth effect
+*/
+
+.slider .circle{
+    top:calc(var(--circle-inset) * -1);
+    left:0;
+    width:var(--circle-diameter);
+    height:var(--circle-diameter);
+    position:absolute;
+    background:var(--circle-bg);
+    border-radius:inherit;
+    transition:0.2s ease;
+    box-shadow:
+    0px 2px 1px -1px rgba(0,0,0,0.2),
+    0px 1px 1px 0px rgba(0,0,0,0.14),
+    0px 1px 3px 0px rgba(0,0,0,0.12);
+}
+
+
+/**
+    - input:checked + .slider .circle
+        When toggle is ON
+    - make left: calc(100% - var(--circle-diameter))
+        to move the knob to the right and add background-color
+        to change colors wen active
+*/
+
+.theme-toggle input:checked + .slider .circle{
+    left:calc(100% - var(--circle-diameter));
+    background-color:rgb(0,56,146);
+}
+
+
+/**
+    - for left,middle,right, make the position relative for 
+        layering effects, add padding for inner spacing,
+        and overflow as hidden to prevent content overflow
+*/
+
+.left,
+.middle,
+.right{
+    position:relative;
+    padding:18px;
+    overflow:hidden;
+}
+
+
+/** 
+    - for left,right,middle::before the before is used
+        to add an extra layer or element before the actual content of an element, 
+        without writing extra HTML.
+    - add inset to create inner spacing, 
+        make the backrgound color implement the variable --panel-dark 
+        to add subtle shading, and z-index as 0 to keep it behind the content
+*/
+
+.left::before,
+.middle::before,
+.right::before{
+    content:"";
+    position:absolute;
+    inset:10px;
+    background:var(--panel-dark);
+    z-index:0;
+}
+
+
+/**
+    - middle panel override
+        Slightly different shade for contrast
+*/
+
+.middle::before{
+    background:var(--panel-dark-2);
+}
+
+
+/**
+    - z-index fix
+        Ensures content stays above overlay
+*/
+
+.left > *,
+.middle > *,
+.right > *{
+    position:relative;
+    z-index:2;
+}
+
+
+/**
+    - Make the container display a grid 
+        to turn the container into a CSS Grid layout system
+    - Then define the named layout regions using grid-template-areas
+    - Use the grid-template-colums to make the columns size
+        the left and right will be 400px and the middle will take all the 
+        available space with the help of 1fr (fractional unit)
+    - same in grid-tempalte-rows 
+        the header and footer will be auto based on the content 
+        and the middle fills the remaining height
+*/
+
+.container{
+    display:grid;
+
+    grid-template-areas:
+    "header header header"
+    "left middle right"
+    "footer footer footer";
+
+    grid-template-columns:400px 1fr 400px;
+    grid-template-rows:auto 1fr auto;
+    height:100vh;
+    overflow:hidden;
+}
+
+
+/** 
+    - Make the header grid-area a header
+        so that it will place element inside "header" grid area 
+    - Also make the display a flex for flexbox in horizontal layout,  
+        justify-content a space-between so that it pushes items to left and right edges,
+        align-items a center to vertically center the items
+    - Add padding to adds space inside the header
+    - make the background implement the --glass to apply glassmorphism
+    - Add backdrop-filter to add blur effect behind element
+    - And add border-bottom to add subtle seperation line
+*/
+
+.header{
+    grid-area:header;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 30px;
+    background:var(--glass);
+    backdrop-filter:blur(16px);
+    border-bottom:1px solid var(--border-light);
+}
+
+
+/**
+    - for the logo name h2 make the color implement the variable --primary
+    - make the font size 20px
+    - and the font-weight 700 to emphasize the text more
+*/
+
+.logo-name h2{
+    color:var(--primary);
+    font-size:20px;
+    font-weight:700;
+}
+
+
+/**
+    - for the variables in theme toggle
+    - add --switch-bg as the main background color of the switch track,
+        --switch-width / height for the size of the width,
+        --circle-diameter for the size of the toggle knob,
+        --circle-bg for the color of the toggle knob,
+        --circle-inset to center knob vertically
+*/
+
+.theme-toggle {
+    --switch-bg: rgb(135, 150, 165);
+    --switch-width: 48px;
+    --switch-height: 15px;
+    --circle-diameter: 32px;
+    --circle-bg: rgb(174, 62, 239);
+    --circle-inset:
+    calc((var(--circle-diameter) - var(--switch-height)) / 2);
+}
+
+
+/**
+    - for the theme-toggle input make the display none, to hide default checkbox input
+*/
+
+.theme-toggle input{
+    display:none;
+}
+
+
+/**
+    - for the slider make the width and height implement the variable
+        --switch-width / height, and make the background implement the
+        --switch-bg
+    - make the border-radius 999px to make it fully rounded,
+        and make the position relative for absolute positioning inside
+    - make the cursor a pointer to make it clickable
+*/
+
+.slider{
+    width:var(--switch-width);
+    height:var(--switch-height);
+    background:var(--switch-bg);
+    border-radius:999px;
+    position:relative;
+    cursor:pointer;
+}
+
+
+/** 
+    - for the slider circle make position absolute to allow movement
+        inside the slider and make the top use calc to center the knob 
+        vertically, make the left as 0 for default position,
+        add transition for smooth animation when switching, and a 
+        box-shadow to add depth effect
+*/
+
+.slider .circle{
+    top:calc(var(--circle-inset) * -1);
+    left:0;
+    width:var(--circle-diameter);
+    height:var(--circle-diameter);
+    position:absolute;
+    background:var(--circle-bg);
+    border-radius:inherit;
+    transition:0.2s ease;
+    box-shadow:
+    0px 2px 1px -1px rgba(0,0,0,0.2),
+    0px 1px 1px 0px rgba(0,0,0,0.14),
+    0px 1px 3px 0px rgba(0,0,0,0.12);
+}
+
+
+/**
+    - input:checked + .slider .circle
+        When toggle is ON
+    - make left: calc(100% - var(--circle-diameter))
+        to move the knob to the right and add background-color
+        to change colors wen active
+*/
+
+.theme-toggle input:checked + .slider .circle{
+    left:calc(100% - var(--circle-diameter));
+    background-color:rgb(0,56,146);
+}
+
+
+/**
+    - for left,middle,right, make the position relative for 
+        layering effects, add padding for inner spacing,
+        and overflow as hidden to prevent content overflow
+    - allows children inside grid to scroll properly
+*/
+
+.left,
+.middle,
+.right{
+    position:relative;
+    padding:18px;
+    overflow:hidden;
+    min-height:0;
+}
+
+
+/** 
+    - for left,right,middle::before the before is used
+        to add an extra layer or element before the actual content of an element, 
+        without writing extra HTML.
+    - add inset to create inner spacing, 
+        make the backrgound color implement the variable --panel-dark 
+        to add subtle shading, and z-index as 0 to keep it behind the content
+*/
+
+.left::before,
+.middle::before,
+.right::before{
+    content:"";
+    position:absolute;
+    inset:10px;
+    background:var(--panel-dark);
+    z-index:0;
+}
+
+
+/**
+    - middle panel override
+        Slightly different shade for contrast
+*/
+
+.middle::before{
+    background:var(--panel-dark-2);
+}
+
+
+/**
+    - z-index fix
+        Ensures content stays above overlay
+*/
+
+.left > *,
+.middle > *,
+.right > *{
+    position:relative;
+    z-index:2;
+}
+

@@ -1,0 +1,262 @@
+/**
+    - RIGHT SIDEBAR
+    - make the right sidebar display flex
+        to create vertical layout
+    - flex-direction column stacks content vertically
+    - gap adds spacing between right boxes
+    - height 100% fills the entire panel
+*/
+
+.right-sidebar{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    height:100%;
+}
+
+
+/**
+    - RIGHT COLUMN
+    - display flex and flex-direction column
+        to stack the queue and up next sections
+    - gap adds spacing between sections
+    - height 100% allows proper stretching
+*/
+
+.right-column{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    height:100%;
+}
+
+
+/**
+    - RIGHT BOX
+    - add glassmorphism card design
+    - backdrop-filter blur adds frosted effect
+    - border adds subtle outline
+    - border-radius softens the corners
+    - padding adds inner spacing
+    - box-shadow creates floating card effect
+*/
+
+.right-box{
+    backdrop-filter:blur(18px);
+    border:1px solid var(--border-light);
+    border-radius:26px;
+    padding:20px;
+    box-shadow:var(--shadow);
+    overflow:hidden;
+}
+
+
+/**
+    - RIGHT TITLE
+    - increase font size and weight
+        for section emphasis
+    - margin-bottom separates title from songs
+    - color uses primary variable
+*/
+
+.right-title{
+    font-size:18px;
+    font-weight:600;
+    margin-bottom:18px;
+    color:var(--primary);
+}
+
+
+/**
+    - SONG ROW
+    - display flex column
+        to stack songs vertically
+    - gap adds spacing between song cards
+*/
+
+.song-row{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+
+/**
+    - SONG BOX
+    - display flex creates horizontal layout
+    - align-items center vertically aligns items
+    - gap adds spacing between number and details
+    - background uses icon-bg variable
+    - padding creates breathing space
+    - border-radius softens shape
+    - cursor pointer makes it clickable
+    - transition creates hover animation
+*/
+
+.song-box{
+    display:flex;
+    align-items:center;
+
+    gap:16px;
+
+    background:var(--icon-bg);
+
+    padding:14px;
+
+    border-radius:18px;
+
+    cursor:pointer;
+
+    transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/**
+    - SONG BOX HOVER
+    - slightly move upward on hover
+    - change background for interaction feedback
+    - add shadow for depth
+*/
+
+.song-box:hover{
+    transform:translateY(-3px);
+
+    background:rgba(255,255,255,0.15);
+
+    box-shadow:
+    0 10px 20px rgba(0,0,0,0.08);
+}
+
+
+/**
+    - ACTIVE SONG
+    - highlight currently playing song
+    - background uses primary transparent tone
+    - border adds stronger focus
+*/
+
+.active-song{
+    background:
+    rgba(122,66,244,0.18);
+
+    border:
+    1px solid rgba(122,66,244,0.35);
+}
+
+
+/**
+    - SONG IMAGE
+    - fixed width and height
+        to create equal image size
+    - flex-shrink 0 prevents image shrinking
+*/
+
+.song-image{
+    width:52px;
+    height:52px;
+    flex-shrink:0;
+}
+
+/**
+    - SONG COVER
+    - width and height 100%
+        fills the image container
+    - object-fit cover keeps image ratio
+        while filling the box properly
+    - border-radius softens image corners
+*/
+
+.song-cover{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:14px;
+}
+
+/**
+    - SONG DETAILS
+    - display flex column
+        to stack song name and artist
+*/
+
+.song-details{
+    display:flex;
+    flex-direction:column;
+}
+
+
+/**
+    - SONG NAME
+    - medium font weight for visibility
+    - use main text variable
+*/
+
+.song-name{
+    font-size:15px;
+    font-weight:500;
+
+    color:var(--text);
+}
+
+
+/**
+    - SONG TIME / ARTIST
+    - smaller text size
+    - lighter text color for secondary info
+*/
+
+.song-time{
+    font-size:13px;
+
+    color:var(--text-light);
+}
+
+
+/**
+    - CUSTOM SCROLLBAR
+    - allows smooth scrolling
+        when many songs are added
+*/
+
+.song-row{
+    overflow-y:auto;
+    max-height:320px;
+    padding-right:4px;
+}
+
+
+/**
+    - SCROLLBAR WIDTH
+*/
+
+.song-row::-webkit-scrollbar{
+    width:6px;
+}
+
+
+/**
+    - SCROLLBAR TRACK
+*/
+
+.song-row::-webkit-scrollbar-track{
+    background:transparent;
+}
+
+
+/**
+    - SCROLLBAR THUMB
+*/
+
+.song-row::-webkit-scrollbar-thumb{
+    background:rgba(255,255,255,0.18);
+    border-radius:999px;
+}
+
+/**
+    - EXTRA LARGE SCREENS (1440px and above)
+    - increase spacing for wide displays
+*/
+

@@ -1,0 +1,115 @@
+/** 
+    - Create a root variable and the opposite of it 
+    - for the Theme toggle
+
+    - We will seperate it by 
+    > Primary
+    > Background
+    > Surfaces
+    > Text 
+    > UI elements
+    > Effects
+ */
+
+:root{
+
+    /* PRIMARY */
+    --primary:#7a42f4;
+    --primary-light:#b388ff;
+
+    /* BACKGROUNDS */
+    --bg1:#c8b6ff;
+    --bg2:#e7d8ff;
+    --bg3:#d6c4ff;
+
+    /* SURFACES */
+    --glass:rgba(255,255,255,0.25);
+    --card-bg:rgba(255,255,255,0.35);
+    --panel-dark:rgba(0,0,0,0.06);
+    --panel-dark-2:rgba(0,0,0,0.08);
+
+    /* TEXT */
+    --text:#000;
+    --text-light:#555;
+
+    /* UI ELEMENTS */
+    --progress-bg:#d4d8df;
+    --border-light:rgba(255,255,255,0.08);
+    --icon-bg:rgba(255,255,255,0.10);
+
+    /* EFFECTS */
+    --shadow:0 15px 35px rgba(0,0,0,0.08);
+    --inner-shadow:inset 0 1px 1px rgba(255,255,255,0.15);
+    --cover-shadow:0 12px 30px rgba(0,0,0,0.18);
+    --primary-shadow:0 14px 22px rgba(122,66,244,0.35);
+}
+
+body.dark{
+
+    /* PRIMARY */
+    --primary:#cb91e5;
+    --primary-light:#5f8fff;
+
+    /* BACKGROUNDS */
+    --bg1:#0f172a;
+    --bg2:#111827;
+    --bg3:#1e293b;
+
+    /* SURFACES */
+    --glass:rgba(20,20,20,0.45);
+    --card-bg:rgba(40,40,40,0.4);
+    --panel-dark:rgba(0,0,0,0.22);
+    --panel-dark-2:rgba(0,0,0,0.25);
+
+    /* TEXT */
+    --text:#ffffff;
+    --text-light:#cfcfcf;
+
+    /* UI ELEMENTS */
+    --progress-bg:#3a3a3a;
+    --border-light:rgba(255,255,255,0.05);
+    --icon-bg:rgba(255,255,255,0.04);
+
+    /* EFFECTS */
+    --shadow:0 15px 35px rgba(0,0,0,0.35);
+    --inner-shadow:inset 0 1px 1px rgba(255,255,255,0.04);
+    --cover-shadow:0 12px 30px rgba(0,0,0,0.4);
+    --primary-shadow:0 14px 22px rgba(0,0,0,0.35);
+}
+
+/** 
+    - Reset the global style
+*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins", sans-serif;
+}
+
+/**
+    - Design the main body
+    - height will ensure The element’s height becomes equal to 100% of the 
+        visible browser window (viewport height).
+    - overflow - hidden, hides anything the spill outside the element's boundaries
+    - background will be linear gradient to have a mix of colors of the variables
+        bg1, bg2, bg3
+    - the color of the text will have the variable of text
+    - transition controls how smoothly a CSS property changes over time.
+*/
+body{
+    height:100vh;
+    overflow:hidden;
+
+    background:linear-gradient(
+        135deg,
+        var(--bg1),
+        var(--bg2),
+        var(--bg3)
+    );
+
+    color:var(--text);
+
+    transition:0.4s ease;
+}

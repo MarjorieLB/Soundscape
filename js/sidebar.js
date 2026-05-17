@@ -105,7 +105,7 @@ function createSongItem(song, index){
 export function renderSidebar(){
 
     queueList.innerHTML = "";
-    upNextList.innerHTML = "";
+
 
     /* QUEUE
      * This loops through all songs
@@ -119,18 +119,4 @@ export function renderSidebar(){
         queueList.appendChild(item);
 
     });
-
-    /* UP NEXT
-     * This starts from index 1
-     * so it skips the current/first song
-     */
-    for(let i = 1;i < songs.length;i++){
-
-        const item =
-        createSongItem(songs[i], i);
-
-        upNextList.appendChild(item);
-
     }
-
-}

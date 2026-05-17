@@ -155,16 +155,25 @@ searchInput.addEventListener("input", () => {
  * 
  * This groups all songs by album name
  * and displays each unique album only once
+ * 
+ * Clicking an album:
+ * - filters all songs with same album
+ * - re-renders left panel with album songs
  */
 function renderAlbums(){
 
     leftContent.innerHTML = "";
 
-    const albums = [...new Set(songs.map(song => song.album))];
+    // get unique album names only
+    const albums =
+    [...new Set(songs.map(song => song.album))];
 
     albums.forEach((album) => {
 
-        const firstSong = songs.find(song => song.album === album);
+        // get first song from album
+        // used for album cover preview
+        const firstSong =
+        songs.find(song => song.album === album);
 
         const box = createInfoBox(
             "fa-solid fa-compact-disc",
@@ -172,6 +181,22 @@ function renderAlbums(){
             "Album",
             firstSong?.cover
         );
+
+        /**
+         * CLICK ALBUM
+         * 
+         * Filters songs that belong
+         * to the selected album only
+         */
+        box.addEventListener("click", () => {
+
+            // get all songs from clicked album
+            const albumSongs =
+            songs.filter(song => song.album === album);
+
+            renderSongs(albumSongs);
+
+        });
 
         leftContent.appendChild(box);
 
@@ -202,6 +227,16 @@ function renderArtists(){
             "Artist",
             firstSong?.cover
         );
+
+        box.addEventListener("click", () => {
+
+            // get all songs from clicked artist
+            const artistSongs =
+            songs.filter(song => song.artist === artist);
+
+            renderSongs(artistSongs);
+
+        });
 
         leftContent.appendChild(box);
 

@@ -39,7 +39,7 @@ export const songs = [
     {
         title: "Kathang Isip",
         artist: "Ben & Ben",
-        album: "Pebble House, Vol. 1: Kuwaderno",
+        album: "Kathang Isip",
         src: "src/music/Kathangisip.mp3",
         cover: "src/image/Kathangisip.jpg",
         favorite: false
@@ -94,11 +94,11 @@ export const songs = [
     },
 
     {
-        title: "II Most Wanted",
-        artist: "Beyonce",
-        album: "II MOST WANTED",
-        src: "src/music/Mostwanted.mp3",
-        cover: "src/image/Mostwanted.jpg",
+        title: "Harana",
+        artist: "Parokya ni Edgar",
+        album: "Halina Sa Parokya",
+        src: "src/music/Harana.mp3",
+        cover: "src/image/Harana.jpg",
         favorite: false
     },
     {
@@ -136,11 +136,10 @@ export const songs = [
     
 
 
-
     {
         title: "Higa",
         artist: "Arthur Nery",
-        album: "Letter never sent",
+        album: "Letters Never Sent",
         src: "src/music/Higa.mp3",
         cover: "src/image/Higa.jpg",
         favorite: false

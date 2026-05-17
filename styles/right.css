@@ -42,12 +42,10 @@
 */
 
 .right-box{
-    backdrop-filter:blur(18px);
-    border:1px solid var(--border-light);
-    border-radius:26px;
-    padding:20px;
-    box-shadow:var(--shadow);
-    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    height:100%;
+    min-height:0;
 }
 
 
@@ -60,7 +58,7 @@
 */
 
 .right-title{
-    font-size:18px;
+    font-size:19px;
     font-weight:600;
     margin-bottom:18px;
     color:var(--primary);
@@ -74,11 +72,9 @@
     - gap adds spacing between song cards
 */
 
-.song-row{
-    display:flex;
-    flex-direction:column;
-    gap:14px;
-}
+
+
+
 
 
 /**
@@ -223,7 +219,7 @@
 
 .song-row{
     overflow-y:auto;
-    max-height:320px;
+    max-height:620px;
     padding-right:4px;
 }
 
@@ -253,10 +249,5 @@
 .song-row::-webkit-scrollbar-thumb{
     background:rgba(255,255,255,0.18);
     border-radius:999px;
+    
 }
-
-/**
-    - EXTRA LARGE SCREENS (1440px and above)
-    - increase spacing for wide displays
-*/
-

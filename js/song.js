@@ -16,8 +16,8 @@ export const songs = [
         title: "Blank Space",
         artist: "Taylor Swift",
         album: "1989",
-        src: "src/music/BlankSpace.mp3",
-        cover: "src/image/BlankSpace.jpg",
+        src: "src/music/Blankspace.mp3",
+        cover: "src/image/Blankspace.jpg",
         favorite: false
     },
     {
@@ -56,8 +56,8 @@ export const songs = [
         title: "Shake It Off",
         artist: "Taylor Swift",
         album: "1989",
-        src: "src/music/ShakeItOff.mp3",
-        cover: "src/image/ShakeItOff.jpg",
+        src: "src/music/Shakeitoff.mp3",
+        cover: "src/image/Shakeitoff.jpg",
         favorite: false
     },
     {
